@@ -38,54 +38,55 @@ function prev_next($prev=null, $next=null) {
     <?php
 }
 
-function nav_array() {
+function nav_array($ver = "") {
+    $ver = $ver ? $ver . "/" : "";
     return [
         
         "Overview" => [
-                        ['docs/overview', 'What is PHPasap'],
-                        ['docs/license', 'License'],
-                        ['docs/install', 'Installation'],
+                        ['docs/'.$ver.'overview', 'What is PHPasap'],
+                        ['docs/'.$ver.'license', 'License'],
+                        ['docs/'.$ver.'install', 'Installation'],
                     ],
         "Quickstart Example" => [
-                        ['docs/crud-overview', 'CRUD application'],
-                        ['docs/crud-create-new-form', 'Create New form'],
-                        ['docs/crud-edit-form', 'Edit form'],
-                        ['docs/crud-view-all', 'View All'],
-                        ['docs/crud-delete', 'Delete'],
-                    ],
+                        ['docs/'.$ver.'crud-overview', 'CRUD application'],
+                        ['docs/'.$ver.'crud-create-new-form', 'Create New form'],
+                        ['docs/'.$ver.'crud-edit-form', 'Edit form'],
+                        ['docs/'.$ver.'crud-view-all', 'View All'],
+                        ['docs/'.$ver.'crud-delete', 'Delete'],
+                    ],         
         "Basic MVC" => [
-                        ['docs/config', 'Config Variables'],
-                        ['docs/routes', 'Routing'],
-                        ['docs/controller', 'Controller'],
-                        ['docs/database', 'Database Queries'],
-                        ['docs/models', 'Models'],
-                        ['docs/views', 'Views'],
+                        ['docs/'.$ver.'config', 'Config Variables'],
+                        ['docs/'.$ver.'routes', 'Routing'],
+                        ['docs/'.$ver.'controller', 'Controller'],
+                        ['docs/'.$ver.'database', 'Database Queries'],
+                        ['docs/'.$ver.'models', 'Models'],
+                        ['docs/'.$ver.'views', 'Views'],
                     ],
         "General" => [
-                        ['docs/request', 'Request'],
-                        ['docs/session', 'Session'],
-                        ['docs/cookies', 'Cookies'],
-                        ['docs/form', 'Form'],
-                        ['docs/form-validation', 'Validation'],
-                        ['docs/mail', 'Mail'],
-                        ['docs/assets', 'Assets (CSS, JS and Images)'],
+                        ['docs/'.$ver.'request', 'Request'],
+                        ['docs/'.$ver.'session', 'Session'],
+                        ['docs/'.$ver.'cookies', 'Cookies'],
+                        ['docs/'.$ver.'form', 'Form'],
+                        ['docs/'.$ver.'form-validation', 'Validation'],
+                        ['docs/'.$ver.'mail', 'Mail'],
+                        ['docs/'.$ver.'assets', 'Assets (CSS, JS and Images)'],
                      ],
         "Customizing" => [
-                        ['docs/libraries', 'Libraries (Custom Classes)'],
-                        ['docs/helpers', 'Helpers (Custom Functions)'],
+                        ['docs/'.$ver.'libraries', 'Libraries (Custom Classes)'],
+                        ['docs/'.$ver.'helpers', 'Helpers (Custom Functions)'],
                     ],
         "Additional Topics" => [
-                        ['docs/composer', 'Composer'],
+                        ['docs/'.$ver.'composer', 'Composer'],
                     ],
     ];    
 }
 
-function get_prev_next_curr() {
+function get_prev_next_curr($ver="") {
     $i = 0;
     $link_array = [];
     $current = false;
     $return_array = ['prev'=>null, 'next'=>null, 'current'=>null];
-    foreach( nav_array() as $section=>$sub_section_array ) {
+    foreach( nav_array($ver) as $section=>$sub_section_array ) {
         foreach($sub_section_array as $sub_section) {
             $i++;
             

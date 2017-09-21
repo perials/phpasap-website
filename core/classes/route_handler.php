@@ -97,7 +97,11 @@ class Route_Handler {
 	 * @return string
 	 */
 	public function base_url() {
-        return 'http://'.$_SERVER['SERVER_NAME'].implode('/',array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1));
+		$protocol = "http";
+		if( isset($_SERVER['HTTPS'] ) ) {
+			$protocol = "https";
+		}
+        return $protocol.'://'.$_SERVER['SERVER_NAME'].implode('/',array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1));
     }
     
 	/**
@@ -187,14 +191,14 @@ class Route_Handler {
 			if( $route_array[0] == 'CONTROLLER' ) {
 				$return_route_match_array['controller'] = $route_array[2];
 				$method = isset($variables[0]) ? $variables[0] : 'index'; 
-				$return_route_match_array['method'] = strtolower($_SERVER['REQUEST_METHOD']). '_' . str_replace('_', '-', $method);
+				$return_route_match_array['method'] = strtolower($_SERVER['REQUEST_METHOD']). '_' . str_replace('-', '_', $method);
 				array_shift($variables);
 				$return_route_match_array['params'] = empty( $variables ) ? [] : $variables;
 			}
 			else {
 				$controller_method = explode('@',$route_array[2]);
 				$return_route_match_array['controller'] = $controller_method[0];
-				$return_route_match_array['method'] = str_replace('_','-',$controller_method[1]);
+				$return_route_match_array['method'] = $controller_method[1];
 				$return_route_match_array['params'] = $variables;	
 			}			
 		}

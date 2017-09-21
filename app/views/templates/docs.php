@@ -7,9 +7,9 @@
                     </div>
                     <div class="toc-wrap">
                         <?php
-                        $total = count(nav_array());
+                        $total = count(nav_array($ver));
                         $count = 0;
-                        foreach(nav_array() as $section=>$sub_section_array) {
+                        foreach(nav_array($ver) as $section=>$sub_section_array) {
                             $count++;
                             ?>
                             <h3><?php echo $section; ?></h3>

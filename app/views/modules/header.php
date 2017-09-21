@@ -74,8 +74,25 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="<?php echo HTML::url('docs/overview'); ?>">Docs</a></li>
-                        <li><a href="<?php echo HTML::url(Config::get('app.download_link')); ?>">Download Ver 1.1</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Docs<?php if( $ver ) echo " (Old ver $ver)"; ?>
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="<?php echo HTML::url('docs/overview'); ?>">ver 1.2 (Latest)</a></li>
+                              <li><a href="<?php echo HTML::url('docs/1.1/overview'); ?>">ver 1.1</a></li>
+                            </ul>
+                        </li>
+                        <!--<li><a href="<?php echo HTML::url('docs/overview'); ?>">Docs</a></li>-->
+                        <!--<li><a href="<?php echo HTML::url(Config::get('app.download_link')); ?>">Download Ver 1.1</a></li>-->
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Download<?php if( $ver ) echo " (Old ver $ver)"; ?>
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="https://github.com/perials/phpasap/archive/master.zip">ver 1.2 (Latest)</a></li>
+                              <li><a href="https://github.com/perials/phpasap/archive/ver-1.1.zip">ver 1.1</a></li>
+                            </ul>
+                        </li>
+                        
                         <!--<li><a href="">GitHub</a></li>-->
                     </ul>
                 </div>

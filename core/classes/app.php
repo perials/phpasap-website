@@ -160,7 +160,7 @@ class App {
             $controller_instance = new $controller;
             
             if( !method_exists( $controller_instance, $this->controller['method'] ) ) {
-                show_error('Controller method doesn\'t exists',true);
+                show_error('Controller '.$controller.' method '.$this->controller['method'].' doesn\'t exists',true);
             }
             
             /* call the controller method with passed arguments and capture returned response */
