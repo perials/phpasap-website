@@ -1,5 +1,6 @@
 <?php
 Route::add('ANY', '/', function() {
+    View::set(['ver'=>false]);
     return View::make('templates/home',['nav'=>get_prev_next_curr()]);
     });
 
