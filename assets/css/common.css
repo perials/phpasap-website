@@ -9,9 +9,13 @@ body.home {
     background: #fff;
 }
 h1, h2, h3, h4 {
+    font-weight: 600;
+    font-family: 'Open Sans';
+    /*font-family: 'Lato', sans-serif;*/
+}
+.home h1, .home h2, .home h3, .home h4 {
     font-weight: 700;
     font-family: 'Montserrat';
-    /*font-family: 'Lato', sans-serif;*/
 }
 a {
     color: #ed490a;
@@ -333,6 +337,8 @@ ul.nav.navbar-nav {
     margin-bottom: 10px;
     font-size: 17px;
     text-transform: uppercase;
+    font-family: 'Montserrat';
+    font-weight: 600;
 }
 .toc ul {
     padding-bottom: 15px;

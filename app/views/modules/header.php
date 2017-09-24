@@ -4,17 +4,17 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400<?php echo !empty($home) ? '' : ',600'; ?>' rel='stylesheet' type='text/css'>
+        <?php if( !empty($home) ) { ?><link href='https://fonts.googleapis.com/css?family=Montserrat:<?php echo !empty($home) ? '700' : ',600'; ?>' rel='stylesheet' type='text/css'><?php } ?>
         <?php
-        if(!empty($is_home)) { ?>
+        if(!empty($home)) { ?>
             <title>PHPasap | As Simple As Possible | As Soon As Possible</title>
         <?php } elseif(is_array($nav['current']) && isset($nav['current'][1])) { ?>
             <title>PHPasap | <?php echo $nav['current'][1]; ?></title>
         <?php } ?>
             
-        <?php //echo HTML::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'); ?>
-        <?php echo HTML::style('assets/css/bootstrap.min.css'); ?>
+        <?php echo HTML::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'); ?>
+        <?php //echo HTML::style('assets/css/bootstrap.min.css'); ?>
         
         <!--font-awesome-->
         <?php echo HTML::style('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'); ?>
@@ -28,7 +28,7 @@
             echo HTML::style('assets/css/docs.css'); */
         ?>
 
-        <?php echo HTML::style('assets/css/common.css'); ?>
+        <?php echo HTML::style('assets/css/common.css?v=1.0.0.0'); ?>
         
         <!--jquery-->
         <?php echo HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'); ?>
@@ -53,7 +53,7 @@
         </script>
         <?php } ?>
     </head>
-    <body class="<?php echo !empty($is_home) ? 'home' : ''; ?>">
+    <body class="<?php echo !empty($home) ? 'home' : ''; ?>">
         <nav class="navbar">
             <div class="container">
                 <div class="navbar-header">
@@ -85,7 +85,7 @@
                         <!--<li><a href="<?php echo HTML::url('docs/overview'); ?>">Docs</a></li>-->
                         <!--<li><a href="<?php echo HTML::url(Config::get('app.download_link')); ?>">Download Ver 1.1</a></li>-->
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Download<?php if( $ver ) echo " (Old ver $ver)"; ?>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Download
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                               <li><a href="https://github.com/perials/phpasap/archive/master.zip">ver 1.2 (Latest)</a></li>
