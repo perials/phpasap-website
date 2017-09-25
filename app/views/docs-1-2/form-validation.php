@@ -19,7 +19,7 @@ $rules = [
     "website" => ["required|url", "Website link"],
 ];
 
-if( !Validator::validate($data, $rules) {
+if( !Validator::validate($data, $rules) ) {
     //validation failed
     $error_array = Validator::errors();    
 }
@@ -77,7 +77,7 @@ $rules = [
 ];
 
 //notice use of $this in third param
-if( !Validator::validate($data, $rules, $this) {
+if( !Validator::validate($data, $rules, $this) ) {
     //validation failed
     $error_array = Validator::errors();    
 }
@@ -118,6 +118,13 @@ function unique_username($validator_obj, $username_value) {
     <li>Your validation function can use the <code>set_error()</code> method of Validator_Handler object, which is the first param passed, to set error message, if any error.</li>
     <li>Second parameter passed to this function will be value of the field to validate</li>
 </ul>
+
+<h3>Redirecting user to another page with input data</h3>
+<p>Usually when form validation fails you would redirect user to another page, mostly the page containing submitted form, with all the inputs he had filled. Below is how you would do so.</p>
+<pre class="php"><?php ___('
+return Request::redirect_to("form-page")->with_inputs();
+'); ?></pre>
+<p>Here <code>with_inputs()</code> would flash the user submitted data in Session which would then be used by the form library to autofill the user form. So for the form to autopopulate user entered data after error make sure you are using the <?php echo HTML::link('docs/form', 'Form'); ?> class instead of using the HTML input fields directly. Refer the <?php echo HTML::link('docs/request', 'Request'); ?> section for more details on redirecting user.</p>
 
 <h3>List of rules</h3>
 <p>Below is the list of predefined rules</p>
