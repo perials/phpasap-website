@@ -14,9 +14,9 @@ $data = [
 //Usually $data will be $_POST
 
 $rules = [
-    "first_name" => "required",
-    "last_name" => "required",
-    "website" => "required|url",
+    "first_name" => ["required", "First name"],
+    "last_name" => ["required", "Last name"],
+    "website" => ["required|url", "Website link"],
 ];
 
 if( !Validator::validate($data, $rules) {
@@ -32,10 +32,10 @@ else {
 <p>If validation is successful then <code>validate()</code> returns boolean true. If any errors then it returns boolean false.</p>
 
 <h3>Adding rules</h3>
-<p>Rules array has to be an associative array. Each key in this array is the name of the field that has to be validated for.</p>
-<p>So suppose the <code>age</code> field is suppose to be numeric. Then rule to be passed would be</p>
+<p>Rules array has to be an associative array. Each key in this array is the name of the field that has to be validated for. While the value is another numeric array. First element is the rule and second one is the human readable name of the field that will be used by the validation library in the error message.</p>
+<p>So say the <code>age</code> field is suppose to be numeric. Then rule to be passed would be</p>
 <pre class="php"><?php ___('
-"age" => "numeric"                           
+"age" => ["numeric", "Age"]                           
 '); ?></pre>
 
 <p>Refer table below for the list of rules</p>
@@ -43,13 +43,13 @@ else {
 <h3>Cascading multiple validation rules</h3>
 <p>To apply multiple rules to a field separate each rule by a pipe <code>|</code>. So say <code>age</code> is required and has to be numeric, then below is the rule to be defined for it.</p>
 <pre class="php"><?php ___('
-"age" => "required|numeric"                           
+"age" => ["required|numeric", "Age"]                           
 '); ?></pre>
 
 <h3>Adding you own rules</h3>
 <p>Sometimes you may want to add your own custom rules to predefined ones. Like say <code>username</code> should be unique. Let's say we want to add our custom rule unique_username. First we'll add below rule to the rules array</p>
 <pre class="php"><?php ___('
-"username" => "unique_username"                           
+"username" => ["unique_username", "Username"]
 '); ?></pre>
 <p>The validation library will first check if the <code>unique_username</code> exists in its predefined list of validation rules. If not then it will one by one do the following until it finds the callback function/method having this name</p>
 <ul>
@@ -70,10 +70,10 @@ else {
 <p>Remember the Controller method will be called only if the third param to validate method is the controller object. So below is how you would call the <code>validate()</code> method</p>
 <pre class="php"><?php ___('
 $rules = [
-    "first_name" => "required",
-    "last_name" => "required",
-    "website" => "required|url",
-    "username" => "required|unique_username" //unique_username is our custom rule
+    "first_name" => ["required", "First name"],
+    "last_name" => ["required", "Last name"],
+    "website" => ["required|url", "Website link"],
+    "username" => ["required|unique_username", "Username"] //unique_username is our custom rule
 ];
 
 //notice use of $this in third param
