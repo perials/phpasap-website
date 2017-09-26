@@ -41,7 +41,7 @@
         
         <div class="container">
             <h2 class="section-title text-center">Install in a minute</h2>
-            <p class="text-center section-tag-line">PHPasap as such required zero configuration. You just need to extract the zip and start coding. Tell the routes which controller will handle given request or handle the request in the route itself.</p>
+            <p class="text-center section-tag-line">Unlike other PHP frameworks, PHPasap as such required zero configuration. You just need to extract the zip and start coding. Tell the routes which controller will handle given request or handle the request in the route itself.</p>
             <div class="row">
                 <div class="col-md-6">
                     <h4>Use inline function in routes to handle request</h4>
@@ -70,7 +70,7 @@ class Pages_Controller extends Base_Controller {
         </div>
         
         <div class="container">
-            <h2 class="section-title text-center">Simple MVC architecture</h2>
+            <h2 class="section-title text-center">PHP framework with simple MVC architecture</h2>
             <p class="text-center section-tag-line">Based on traditional MVC architecture: Controllers handle the businees logic, Models interact with database and Views contains the HTML markup</p>
             <div class="row">
                 <div class="col-md-4">
@@ -165,7 +165,7 @@ echo Form::select("gender", ["male"=>"Male", "female"=>"Female"]);
         <div class="features">
             <div class="container">
                 <h2 class="section-title text-center">Features</h2>
-                <p class="text-center section-tag-line">Decision to choose a framework depends on the application requirements. Below are few features that makes PHPasap suitable for most of your PHP applications</p>
+                <p class="text-center section-tag-line">Decision to choose a PHP framework depends on the application requirements. Below are few features that makes PHPasap suitable for most of your PHP applications</p>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="media">
@@ -174,7 +174,7 @@ echo Form::select("gender", ["male"=>"Male", "female"=>"Female"]);
                             </div>
                             <div class="media-body">
                                 <h3>Small Footprint</h3>
-                                <p>PHPasap is one of the very few frameworks having really small footprint, about less than a MB</p>
+                                <p>PHPasap is one of the very few PHP framework having really small footprint, about less than a MB</p>
                             </div>
                         </div>
                     </div>
@@ -244,7 +244,7 @@ echo Form::select("gender", ["male"=>"Male", "female"=>"Female"]);
                             </div>
                             <div class="media-body">
                                 <h3>Learn quickly</h3>
-                                <p>Even if you are beginner it will not take you more than a hour to understand the entire framework.</p>
+                                <p>Even if you are beginner it will not take you more than a hour to completely understand this awesome PHP framework.</p>
                             </div>
                         </div>
                     </div>
