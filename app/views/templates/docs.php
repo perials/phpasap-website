@@ -25,6 +25,9 @@
                     </div>
                 </div>
                 <div class="col-md-9">
+                    <?php if( !empty($ver) ) { ?>
+                    <div class="alert alert-danger" style="margin-top:15px;">This is an outdated version of PHPasap. Please visit <a href="<?php echo HTML::url("docs/overview"); ?>"><?php echo HTML::url("docs"); ?></a> for the latest version.</div>
+                    <?php } ?>
                     <?php echo $content; ?>
                     <?php prev_next(isset($nav['prev'][0]) ? $nav['prev'][0] : null, isset($nav['next'][0]) ? $nav['next'][0] : null); ?>
                 </div>
